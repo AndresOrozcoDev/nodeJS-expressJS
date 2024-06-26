@@ -5,7 +5,7 @@ const router = express.Router();
  * @swagger
  * /:
  *   get:
- *     summary: Welcome endpoint
+ *     summary: Root
  *     description: Returns a welcome message
  *     responses:
  *       200:

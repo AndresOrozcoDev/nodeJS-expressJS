@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
-const routes = require('./routes');
+const indexRoutes = require('./routes/index');
+const userRoutes = require('./routes/users'); 
 
 // Configuración de Swagger
 const swaggerOptions = {
@@ -26,7 +27,8 @@ const swaggerDocs = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Configuración de rutas
-app.use('/', routes);
+app.use('/', indexRoutes);
+app.use('/', userRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
